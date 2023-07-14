@@ -40,13 +40,14 @@
           <div class="card-body">
             <!-- Will insert names and the info with JS -->
             <div class="row">
-              <h2 class="card-title col-md-3">City Name</h2>
-              <h2 class="dateToday col-md-9"></h2>
+              <h2 class="card-title col-md-12" id="cityName">City Name <span class="dateToday"></span></h2>
             </div>
             
-            <p class="card-text">Temp:<span></span></p>
-            <p class="card-text">Wind:<span></span></p>
-            <p class="card-text">Humidity:<span></span></p>
+            <div id="weatherInfo">
+              <p class="card-text" id="temp">Temp:<span></span></p>
+              <p class="card-text" id="wind">Wind:<span></span></p>
+              <p class="card-text" id="hum">Humidity:<span></span></p>
+            </div>
           </div>
         </div>
 

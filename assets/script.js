@@ -4,6 +4,8 @@ dateToday.innerHTML = currentDate;
 var searchBtn = document.querySelector('#searchBtn');
 //Will add later for local storage
 var cityHistory = [];
+var cityName = document.getElementById('cityName');
+var weatherIcon = document.getElementById("weatherIcon");
 
 
 function getGeo(event) {
@@ -21,6 +23,7 @@ function getGeo(event) {
       console.log(data);
       var lat = data[0].lat;
       var lon = data[0].lon;
+      document.getElementById("cityName").innerHTML = inputField + " " + currentDate;
       console.log(lat,lon);
       getWeather(lat,lon);
     })
@@ -36,8 +39,11 @@ function getWeather(lat,lon) {
     })
     .then(function (data) {
       console.log(data);
+      document.getElementById("temp").innerHTML = "Temp: " + Math.round(data.current.temp) + "°F";
+      document.getElementById("wind").innerHTML = "Wind: " + data.current.wind_speed + " MPH";
+      document.getElementById("hum").innerHTML = "Humidity : " + data.current.humidity + "%";
     })
-}
+};
 
 searchBtn.addEventListener("click", getGeo);
 
