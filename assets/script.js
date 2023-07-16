@@ -1,7 +1,8 @@
 var currentDate = dayjs().format("(MM/DD/YYYY)");
 var dateToday = document.querySelector(".dateToday");
     dateToday.innerHTML = currentDate;
-var searchBtn = document.querySelector('#searchBtn');
+var cardGroup = document.getElementById('cardGroup');
+var searchBtn = document.getElementById('searchBtn');
 var cityName = document.getElementById('cityName');
 var weatherIcon = document.getElementById("weatherIcon");
 var days = document.getElementById("days");
@@ -52,6 +53,7 @@ function getWeather(lat,lon) {
     })
     .then(function (data) {
       console.log(data);
+      cardGroup.style.visibility = 'visible';
       document.getElementById("temp").innerHTML = "Temp: " + Math.round(data.current.temp) + "°F";
       document.getElementById("wind").innerHTML = "Wind: " + data.current.wind_speed + " MPH";
       document.getElementById("hum").innerHTML = "Humidity: " + data.current.humidity + "%";
@@ -153,6 +155,8 @@ function getWeather(lat,lon) {
     cardBodyFive.appendChild(p5c);
     })
 };
+
+
 
 searchBtn.addEventListener("click", getGeo);
 

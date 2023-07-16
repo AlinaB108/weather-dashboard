@@ -1,0 +1,45 @@
+header {
+  background-color: #2A2F4F;
+  padding: 25px;
+  color: white;
+}
+
+h1 {
+  font-family: 'Rokkitt', serif;
+  font-size: 50px;
+  letter-spacing: 2px;
+}
+
+main {
+  margin-top: 50px;
+}
+
+#searchBtn {
+  background-color: #2A2F4F;
+}
+
+#searchBtn:hover {
+  background-color: #474d74;
+}
+
+#searchBtn:focus {
+  outline: none;
+}
+
+#cardBodyOne, #cardBodyTwo, #cardBodyThree, #cardBodyFour, #cardBodyFive {
+  background: linear-gradient(230deg, rgba(82,106,223,1) 0%, rgba(146,218,244,1) 100%);
+  border-radius: 10px;
+}
+
+h2, h3, h4 {
+  font-family: 'Exo', sans-serif;
+}
+
+p {
+  font-family: 'Exo', sans-serif;
+  font-size: 20px;
+}
+
+#cardGroup {
+  visibility: hidden;
+}
