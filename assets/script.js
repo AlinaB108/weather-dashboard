@@ -18,6 +18,13 @@ var dayTwo = dayjs().add(2, "day").format("MM/DD/YYYY");
 var dayThree = dayjs().add(3, "day").format("MM/DD/YYYY");
 var dayFour = dayjs().add(4, "day").format("MM/DD/YYYY");
 var dayFive = dayjs().add(5, "day").format("MM/DD/YYYY");
+
+var weatherIconOne;
+var weatherIconTwo; 
+var weatherIconThree; 
+var weatherIconFour; 
+var weatherIconFive;
+
 //Will add later for local storage
 var cityHistory = [];
 
@@ -58,31 +65,31 @@ function getWeather(lat,lon) {
       document.getElementById("wind").innerHTML = "Wind: " + data.current.wind_speed + " MPH";
       document.getElementById("hum").innerHTML = "Humidity: " + data.current.humidity + "%";
 
-      // Weather Icons
+      // // Weather Icons
       var wIcon = document.createElement("img");
       wIcon.setAttribute("src", "http://openweathermap.org/img/w/" + data.current.weather[0].icon + ".png");
       weatherIcon.appendChild(wIcon);
 
       var wIconOne = document.createElement("img");
       wIconOne.setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[1].weather[0].icon + ".png");
-      weatherIconOne.appendChild(wIconOne);
+      cardBodyOne.appendChild(wIconOne);
 
       var wIconTwo = document.createElement("img");
       wIconTwo.setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[2].weather[0].icon + ".png");
-      weatherIconTwo.appendChild(wIconTwo);
+      cardBodyTwo.appendChild(wIconTwo);
 
       var wIconThree = document.createElement("img");
       wIconThree.setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[3].weather[0].icon + ".png");
-      weatherIconThree.appendChild(wIconThree);
+      cardBodyThree.appendChild(wIconThree);
 
       
       var wIconFour = document.createElement("img");
       wIconFour.setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[4].weather[0].icon + ".png");
-      weatherIconFour.appendChild(wIconFour);
+      cardBodyFour.appendChild(wIconFour);
 
       var wIconFive = document.createElement("img");
       wIconFive.setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[5].weather[0].icon + ".png");
-      weatherIconFive.appendChild(wIconFive);
+      cardBodyFive.appendChild(wIconFive);
 
     //Day One
     var h1 = document.createElement("h4");
@@ -156,5 +163,13 @@ function getWeather(lat,lon) {
     })
 };
 
-searchBtn.addEventListener("click", getGeo);
+searchBtn.addEventListener("click", function() {
+  cardBodyOne.innerHTML = '';
+  cardBodyTwo.innerHTML = '';
+  cardBodyThree.innerHTML = '';
+  cardBodyFour.innerHTML = '';
+  cardBodyFive.innerHTML = '';
+  weatherIcon.innerHTML = '';
+  getGeo(event);
+});
 
