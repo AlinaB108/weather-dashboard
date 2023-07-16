@@ -27,7 +27,7 @@ function getGeo(event) {
   var inputField = document.getElementById("inputField").value;
   console.log(inputField);
 
-  var requestGeoUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + inputField + '&limit=1&appid=fcafd102401c66de2b3db010da96e87c';
+  var requestGeoUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + inputField + '&limit=1&appid=fcafd102401c66de2b3db010da96e87c';
   fetch(requestGeoUrl)
     .then(function (response) {
       console.log(response);
@@ -155,8 +155,6 @@ function getWeather(lat,lon) {
     cardBodyFive.appendChild(p5c);
     })
 };
-
-
 
 searchBtn.addEventListener("click", getGeo);
 
