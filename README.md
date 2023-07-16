@@ -5,9 +5,14 @@ The weather information includes:
 <li>Wind
 <li>Humidity
 
+The app also displays icons indicating current weather conditions and weather conditions for the next 5 days for a selected city.
+
 ## Usage
 You can find the site here: https://alinab108.github.io/weather-dashboard/
 ![Screenshot](assets/images/weather.png)
+
+## Credits 
+OpenWeatherMap APIs(One Call API 3.0 andGeocoding API ) https://openweathermap.org/
 
 ## License
 MIT License
