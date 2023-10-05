@@ -1,32 +1,20 @@
 var currentDate = dayjs().format("(MM/DD/YYYY)");
 var dateToday = document.querySelector(".dateToday");
-  dateToday.innerHTML = currentDate;
-var cardGroup = document.getElementById('cardGroup');
+dateToday.innerHTML = currentDate;
+
 var searchBtn = document.getElementById('searchBtn');
-var cityName = document.getElementById('cityName');
-var weatherIcon = document.getElementById("weatherIcon");
-var days = document.getElementById("days");
-var weatherIcon =  document.getElementById('weatherIcon');
 var cardBodyOne = document.getElementById('cardBodyOne');
 var cardBodyTwo = document.getElementById('cardBodyTwo');
 var cardBodyThree = document.getElementById('cardBodyThree');
 var cardBodyFour = document.getElementById('cardBodyFour');
 var cardBodyFive = document.getElementById('cardBodyFive');
+
 // Added days for 5-day forecast
 var dayOne = dayjs().add(1, "day").format("MM/DD/YYYY");
 var dayTwo = dayjs().add(2, "day").format("MM/DD/YYYY");
 var dayThree = dayjs().add(3, "day").format("MM/DD/YYYY");
 var dayFour = dayjs().add(4, "day").format("MM/DD/YYYY");
 var dayFive = dayjs().add(5, "day").format("MM/DD/YYYY");
-
-var weatherIconOne;
-var weatherIconTwo; 
-var weatherIconThree; 
-var weatherIconFour; 
-var weatherIconFive;
-
-//Will add later for local storage
-var cityHistory = [];
 
 // Array to store the day names
 var dayNames = [];
@@ -43,14 +31,19 @@ function createWeatherInfo(dayIndex, data) {
   var pTemp = document.createElement("p");
   var pWind = document.createElement("p");
   var pHumidity = document.createElement("p");
+  var weatherIcon = document.createElement("img"); // Create the weather icon element
 
   h.textContent = dayName;
   pTemp.textContent = "Temp: " + Math.round(data.daily[dayIndex].temp.max) + "°F";
   pWind.textContent = "Wind: " + data.daily[dayIndex].wind_speed + " MPH";
   pHumidity.textContent = "Humidity: " + data.daily[dayIndex].humidity + "%";
+  
+  // Set the weather icon source
+  weatherIcon.setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[dayIndex].weather[0].icon + ".png");
 
   cardBody.innerHTML = '';
   cardBody.appendChild(h);
+  cardBody.appendChild(weatherIcon);
   cardBody.appendChild(pTemp);
   cardBody.appendChild(pWind);
   cardBody.appendChild(pHumidity);
