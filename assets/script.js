@@ -34,12 +34,14 @@ function createWeatherInfo(dayIndex, data) {
 
   var h = document.createElement("h4");
   var pTemp = document.createElement("p");
+  var pFeel = document.createElement("p");
   var pWind = document.createElement("p");
   var pHumidity = document.createElement("p");
-  var weatherIcon = document.createElement("img"); // Create the weather icon element
+  var weatherIcon = document.createElement("img");
 
   h.textContent = dayName;
   pTemp.textContent = "Temp: " + Math.round(data.daily[dayIndex].temp.max) + "°F";
+  pFeel.textContent = "Feels Like: " + data.daily[dayIndex].feels_like.day + "°F";
   pWind.textContent = "Wind: " + data.daily[dayIndex].wind_speed + " MPH";
   pHumidity.textContent = "Humidity: " + data.daily[dayIndex].humidity + "%";
   
@@ -50,6 +52,7 @@ function createWeatherInfo(dayIndex, data) {
   cardBody.appendChild(h);
   cardBody.appendChild(weatherIcon);
   cardBody.appendChild(pTemp);
+  cardBody.appendChild(pFeel);
   cardBody.appendChild(pWind);
   cardBody.appendChild(pHumidity);
 }
@@ -92,6 +95,7 @@ function getWeather(lat, lon) {
       console.log(data);
       cardGroup.style.visibility = 'visible';
       document.getElementById("temp").innerHTML = "Temp: " + Math.round(data.current.temp) + "°F";
+      document.getElementById("feelsLike").innerHTML = "Feels Like: " + data.current.feels_like + "°F";
       document.getElementById("wind").innerHTML = "Wind: " + data.current.wind_speed + " MPH";
       document.getElementById("hum").innerHTML = "Humidity: " + data.current.humidity + "%";
 
